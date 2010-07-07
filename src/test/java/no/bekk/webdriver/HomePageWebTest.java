@@ -24,4 +24,9 @@ public class HomePageWebTest {
         driver.get("http://localhost:8080/guestbook/");
         driver.quit();
     }
+
+    @Test
+    public void test2() {
+        System.out.println("This is test 2");
+    }
 }

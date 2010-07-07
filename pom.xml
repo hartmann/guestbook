@@ -146,6 +146,13 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </testResource>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/loadtest</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+            </testResource>
         </testResources>
         <plugins>
             <plugin>

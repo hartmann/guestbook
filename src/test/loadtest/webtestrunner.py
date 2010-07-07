@@ -5,8 +5,11 @@ from no.bekk.webdriver import HomePageWebTest
 
 class TestRunner:
     def __call__(self):
-        grinder.statistics.delayReports = 1
-        myTest = Test(1, "HomePage Grinder Test")
-        jWebUnitTests = myTest.wrap(HomePageWebTest())
+        test1 = Test(1, "HomePage Grinder Test")
+        jWebUnitTests = test1.wrap(HomePageWebTest())
 
         jWebUnitTests.testThatApplicationIsUpAndRunning()
+
+        test2 = Test(2, "HomePage Grinder Test 2")
+        webtest2 = test2.wrap(HomePageWebTest())
+        webtest2.test2()
