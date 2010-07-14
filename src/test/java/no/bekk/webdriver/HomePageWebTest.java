@@ -1,5 +1,6 @@
 package no.bekk.webdriver;
 
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,11 +13,8 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
  * Time: 17:44:02
  * To change this template use File | Settings | File Templates.
  */
-public class HomePageWebTest {
+public class HomePageWebTest extends TestCase {
 
-    public HomePageWebTest() {
-        System.out.println("Opprettet instans av klassen");
-    }
 
     @Test
     public void testThatApplicationIsUpAndRunning() {

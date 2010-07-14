@@ -4,12 +4,26 @@ from net.grinder.script import Test
 from no.bekk.webdriver import HomePageWebTest
 
 class TestRunner:
+
+    def __init__(self):
+        self.originalWebtest = HomePageWebTest()
+
     def __call__(self):
-        test1 = Test(1, "HomePage Grinder Test")
-        jWebUnitTests = test1.wrap(HomePageWebTest())
+        # Turn off automatic reporting for the current worker thread.
+        # Having done this, the script can modify or set the statistics
+        # before they are sent to the log and the console.
+        grinder.statistics.delayReports = 1
 
-        jWebUnitTests.testThatApplicationIsUpAndRunning()
+        log = grinder.logger.output
+        out = grinder.logger.TERMINAL
 
-        test2 = Test(2, "HomePage Grinder Test 2")
-        webtest2 = test2.wrap(HomePageWebTest())
-        webtest2.test2()
+        testMethods = ["testThatApplicationIsUpAndRunning", "test2", ]
+
+        testNumber = 0
+        for test in testMethods:
+            log(test, out)
+            testNumber += 1
+            testCase = Test(testNumber, test).wrap(self.originalWebtest)
+            getattr(testCase, test)()
+
+
