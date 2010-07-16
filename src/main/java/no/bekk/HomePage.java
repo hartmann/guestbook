@@ -11,7 +11,6 @@ public class HomePage extends WebPage {
 
 	private static final long serialVersionUID = 1L;
 
-	// TODO Add any page properties or variables here
 
     /**
 	 * Constructor that is invoked when page is invoked without a session.
@@ -22,8 +21,7 @@ public class HomePage extends WebPage {
     public HomePage(final PageParameters parameters) {
 
         // Add the simplest type of label
-        add(new Label("message", "If you see this message wicket is properly configured and running"));
+        add(new Label("welcomemessage", "Velkommen til testapplikasjonen"));
 
-        // TODO Add your page's components here
     }
 }
